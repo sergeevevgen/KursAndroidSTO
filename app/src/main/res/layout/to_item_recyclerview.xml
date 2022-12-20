@@ -23,7 +23,7 @@
             android:layout_margin="10dp"
             android:contentDescription="@string/app_name"
             android:padding="5dp"
-            android:src="@drawable/ic_baseline_record_24" />
+            android:src="@drawable/ic_baseline_to_on_24" />
 
         <TextView
             android:id="@+id/to_to_and_carNameTV"
@@ -33,7 +33,7 @@
             android:layout_marginTop="10dp"
             android:layout_toEndOf="@id/record_imageIV"
             android:background="#EFE6E6"
-            android:text="DateBegin"
+            android:text="Название"
             android:textColor="@color/black"
             android:textSize="18sp"
             android:textStyle="bold" />
@@ -48,7 +48,7 @@
             android:layout_toEndOf="@id/record_imageIV"
             android:background="#EFE6E6"
             android:drawablePadding="2dp"
-            android:text="DateEnd"
+            android:text="Статус: "
             android:textColor="#1F2223" />
 
         <TextView
@@ -61,8 +61,50 @@
             android:layout_toEndOf="@id/record_imageIV"
             android:background="#EFE6E6"
             android:drawablePadding="2dp"
-            android:minHeight="50dp"
-            android:text="Description"
+            android:text="Стоимость"
+            android:textColor="#0F1010"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/to_dateCreateTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/to_sumTV"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="8dp"
+            android:layout_toEndOf="@id/record_imageIV"
+            android:background="#EFE6E6"
+            android:drawablePadding="2dp"
+            android:text="Дата создания: "
+            android:textColor="#0F1010"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/to_dateImplementTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/to_dateCreateTV"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="8dp"
+            android:layout_toEndOf="@id/record_imageIV"
+            android:background="#EFE6E6"
+            android:drawablePadding="2dp"
+            android:text="Дата начала: "
+            android:textColor="#0F1010"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/to_dateOverTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/to_dateImplementTV"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="5dp"
+            android:layout_toEndOf="@id/record_imageIV"
+            android:background="#EFE6E6"
+            android:drawablePadding="2dp"
+            android:text="Дата окончания: "
             android:textColor="#0F1010"
             android:textSize="11sp" />
 

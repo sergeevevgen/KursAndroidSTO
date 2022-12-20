@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -17,6 +18,7 @@ import android.widget.Toast;
 import com.example.myapplication.App;
 import com.example.myapplication.R;
 import com.example.myapplication.adapters.CarListAdapter;
+import com.example.myapplication.models.bindingModels.CarBindingModel;
 import com.example.myapplication.models.viewModels.CarViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -85,6 +87,35 @@ public class CarsFragment extends Fragment {
                 replaceFragment(addEditCarFragment);
             }
         });
+
+        new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0,
+                ItemTouchHelper.RIGHT) {
+            @Override
+            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder viewHolder1) {
+                return false;
+            }
+
+            @Override
+            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
+                CarViewModel car = adapter.getCarAt(viewHolder.getAdapterPosition());
+                CarBindingModel car_bind = new CarBindingModel();
+                car_bind.setId(car.getId());
+                car_bind.setBrand(car.getBrand());
+                car_bind.setModel(car.getModel());
+                car_bind.setVIN(car.getVIN());
+                car_bind.setOwnerPhoneNumber(car.getOwnerPhoneNumber());
+                car_bind.setRecords(car.getRecords());
+                deleteCar(car_bind);
+
+                Toast.makeText(getContext(), "Авто удалено", Toast.LENGTH_SHORT).show();
+                try {
+                    Thread.sleep(300);
+                } catch (InterruptedException e) {
+                    Thread.currentThread().interrupt();
+                }
+                restore();
+            }
+        }).attachToRecyclerView(recyclerView);
     }
 
     private void restore() {
@@ -103,6 +134,25 @@ public class CarsFragment extends Fragment {
 
             @Override
             public void onFailure(@NonNull Call<List<CarViewModel>> call, @NonNull Throwable t) {
+                Toast.makeText(getContext(), t.getMessage(), Toast.LENGTH_SHORT).show();
+                Log.d("BBB", t.getMessage());
+            }
+        });
+    }
+
+    private void deleteCar(CarBindingModel car) {
+        Call<Void> call = app.getStoService().getApi().deleteCar(car);
+        call.enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(@NonNull Call<Void> call, @NonNull Response<Void> response) {
+                if (!response.isSuccessful()) {
+                    Toast.makeText(getContext(), response.code(), Toast.LENGTH_SHORT).show();
+                    return;
+                }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<Void> call, @NonNull Throwable t) {
                 Toast.makeText(getContext(), t.getMessage(), Toast.LENGTH_SHORT).show();
                 Log.d("BBB", t.getMessage());
             }

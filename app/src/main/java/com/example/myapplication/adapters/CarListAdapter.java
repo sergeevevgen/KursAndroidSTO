@@ -58,6 +58,10 @@ public class CarListAdapter extends RecyclerView.Adapter<CarListAdapter.CarViewH
         return 0;
     }
 
+    public CarViewModel getCarAt(int position) {
+        return cars.get(position);
+    }
+
     @NonNull
     @Override
     public CarViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {

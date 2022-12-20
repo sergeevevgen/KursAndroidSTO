@@ -38,16 +38,14 @@ public class RecordListAdapter extends RecyclerView.Adapter<RecordListAdapter.Re
         this.records = records;
     }
 
-//    public ArrayList<CarViewModel> getSelected_cars() {
-//        return cars_selected;
-//    }
-
     @Override
     public void onBindViewHolder(@NonNull RecordViewHolder holder, int position) {
         if (records != null && records.size() > 0) {
             ServiceRecordViewModel record = records.get(position);
-            holder.dateBeginTV.setText(DateB + record.getDateBegin());
-            holder.dateEndTV.setText(DateE + record.getDateEnd());
+            String date = record.getDateBegin().split("T")[0] + " " + record.getDateBegin().split("T")[1].substring(0, 5);
+            holder.dateBeginTV.setText(DateB + date);
+            date = record.getDateEnd().split("T")[0] + " " + record.getDateEnd().split("T")[1].substring(0, 5);
+            holder.dateEndTV.setText(DateE + date);
             holder.descriptionTV.setText(Description + record.getDescription());
         }
     }
@@ -73,9 +71,9 @@ public class RecordListAdapter extends RecyclerView.Adapter<RecordListAdapter.Re
 
         private RecordViewHolder(View itemView) {
             super(itemView);
-            dateBeginTV = itemView.findViewById(R.id.record_dateBeginTV);
-            dateEndTV = itemView.findViewById(R.id.record_dateEndTV);
-            descriptionTV = itemView.findViewById(R.id.record_descriptionTV);
+            dateBeginTV = itemView.findViewById(R.id.to_to_and_carNameTV);
+            dateEndTV = itemView.findViewById(R.id.to_statusTV);
+            descriptionTV = itemView.findViewById(R.id.to_sumTV);
 
             itemView.setOnLongClickListener(new View.OnLongClickListener() {
                 @Override

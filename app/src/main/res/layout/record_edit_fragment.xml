@@ -22,11 +22,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:background="#EEE5E5"
+            android:background="#EFE6E6"
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/tv_car_brand_and_model"
+                android:id="@+id/record_edit_tv_car_brand_and_model"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -34,10 +34,12 @@
                 android:minHeight="48dp"
                 android:paddingStart="10dp"
                 android:paddingEnd="10dp"
-                android:text="МаркаИМодельАвто" />
+                android:text="МаркаИМодельАвто"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/tv_date_begin"
+                android:id="@+id/record_edit_tv_date_begin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -45,10 +47,11 @@
                 android:minHeight="48dp"
                 android:paddingStart="10dp"
                 android:paddingEnd="10dp"
-                android:text="Дата начала" />
+                android:text="Дата начала"
+                android:textColor="@color/black" />
 
             <TextView
-                android:id="@+id/tv_date_end"
+                android:id="@+id/record_edit_tv_date_end"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -56,10 +59,11 @@
                 android:minHeight="48dp"
                 android:paddingStart="10dp"
                 android:paddingEnd="10dp"
-                android:text="Дата конца" />
+                android:text="Дата конца"
+                android:textColor="@color/black" />
 
             <EditText
-                android:id="@+id/editText_description"
+                android:id="@+id/record_edit_editText_description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -68,7 +72,8 @@
                 android:minHeight="48dp"
                 android:paddingStart="10dp"
                 android:paddingEnd="10dp"
-                android:text="Дата концаasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd" />
+                android:text="Описание"
+                android:textSize="14sp" />
 
         </LinearLayout>
 
@@ -78,28 +83,16 @@
             android:layout_marginTop="20dp">
 
             <Button
-                android:id="@+id/button_edit_record_accept"
+                android:id="@+id/record_edit_button_edit_record_accept"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="100dp"
-                android:background="#EEE5E5"
+                android:layout_marginEnd="250dp"
+                android:background="#EFE6E6"
                 android:text="Изменить"
                 android:textColor="@color/black"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/button_edit_record_cancel"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <Button
-                android:id="@+id/button_edit_record_cancel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="#EEE5E5"
-                android:text="Назад"
-                android:textColor="@color/black"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/button_edit_record_accept"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

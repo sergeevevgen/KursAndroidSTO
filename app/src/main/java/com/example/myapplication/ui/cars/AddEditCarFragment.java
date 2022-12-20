@@ -77,6 +77,11 @@ public class AddEditCarFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 createOrUpdate();
+                try {
+                    Thread.sleep(300);
+                } catch (InterruptedException e) {
+                    Thread.currentThread().interrupt();
+                }
                 getActivity().getSupportFragmentManager()
                         .popBackStack();
             }
