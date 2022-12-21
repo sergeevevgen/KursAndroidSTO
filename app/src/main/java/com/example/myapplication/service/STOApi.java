@@ -11,10 +11,12 @@ import com.example.myapplication.models.bindingModels.WorkBindingModel;
 import com.example.myapplication.models.viewModels.CarViewModel;
 import com.example.myapplication.models.viewModels.EmployeeViewModel;
 import com.example.myapplication.models.viewModels.ServiceRecordViewModel;
+import com.example.myapplication.models.viewModels.SparePartViewModel;
 import com.example.myapplication.models.viewModels.StoreKeeperViewModel;
 import com.example.myapplication.models.viewModels.TOViewModel;
 import com.example.myapplication.models.viewModels.WorkTypeViewModel;
 import com.example.myapplication.models.viewModels.WorkViewModel;
+import com.example.myapplication.models.webViewModels.SparePartWebViewModel;
 
 import java.util.List;
 
@@ -87,6 +89,9 @@ public interface STOApi {
     @GET("Work/GetWorkListByTO")
     Call<List<WorkViewModel>> getWorksByTO(@Query("toId") Integer toId);
 
+    @GET("Work/GetWork")
+    Call<WorkViewModel> getWork(@Query("workId") Integer workId);
+
     //StoreKeeper
     @GET("StoreKeeper/GetStoreKeeperList")
     Call<List<StoreKeeperViewModel>> getStoreKeepers();
@@ -103,4 +108,8 @@ public interface STOApi {
 
     @POST("Employee/Delete")
     Call<Void> deleteProfile(@Body EmployeeBindingModel model);
+
+    //SparePart
+    @GET("SparePart/GetSparePartsByWorkType")
+    Call<List<SparePartWebViewModel>> getSparePartsByWorkType(@Query("workTypeId") Integer workTypeId);
 }

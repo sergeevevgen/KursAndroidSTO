@@ -25,7 +25,7 @@
             android:padding="3dp">
 
             <EditText
-                android:id="@+id/create_work_countET"
+                android:id="@+id/watch_work_storekeeperfioTV"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"

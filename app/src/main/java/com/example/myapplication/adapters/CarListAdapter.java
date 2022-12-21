@@ -24,7 +24,6 @@ public class CarListAdapter extends RecyclerView.Adapter<CarListAdapter.CarViewH
     public CarListAdapter(Context c) {
         this.context = c;
         cars = new ArrayList<>();
-        //cars_selected = new ArrayList<>();
     }
 
     public void filterList(ArrayList<CarViewModel> filterList) {
@@ -35,10 +34,6 @@ public class CarListAdapter extends RecyclerView.Adapter<CarListAdapter.CarViewH
     public void setData(ArrayList<CarViewModel> cars) {
         this.cars = cars;
     }
-
-//    public ArrayList<CarViewModel> getSelected_cars() {
-//        return cars_selected;
-//    }
 
     @Override
     public void onBindViewHolder(@NonNull CarViewHolder holder, int position) {

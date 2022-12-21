@@ -50,10 +50,10 @@ public class TOListAdapter extends RecyclerView.Adapter<TOListAdapter.TOViewHold
             holder.to_to_and_carNameTV.setText(to.getTOAndCarName());
             String status = to.getStatus();
             holder.to_statusTV.setText(Html.fromHtml(getStatus(status)), TextView.BufferType.SPANNABLE);
-            holder.to_sumTV.append(String.valueOf(to.getSum()));
-            holder.to_dateCreateTV.append(getDateNormalFormat(to.getDateCreate()));
-            holder.to_dateImplementTV.append(getDateNormalFormat(to.getDateImplement()));
-            holder.to_dateOverTV.append(getDateNormalFormat(to.getDateOver()));
+            holder.to_sumTV.setText("Стоимость: " + to.getSum());
+            holder.to_dateCreateTV.setText("Дата создания: " + getDateNormalFormat(to.getDateCreate()));
+            holder.to_dateImplementTV.setText("Дата начала: " + getDateNormalFormat(to.getDateImplement()));
+            holder.to_dateOverTV.setText("Дата окончания: " + getDateNormalFormat(to.getDateOver()));
         }
     }
 

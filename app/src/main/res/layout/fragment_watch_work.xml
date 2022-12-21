@@ -1,14 +1,119 @@
-<?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.works.WatchWorkFragment">
+    android:layout_marginStart="8dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginEnd="8dp"
+    android:background="@color/white"
+    tools:context=".ui.cars.AddEditCarFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#FEFEFE"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-</FrameLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#EEE5E5"
+            android:orientation="vertical"
+            android:paddingStart="10dp">
+
+            <TextView
+                android:id="@+id/watch_work_storekeeperfioTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:gravity="center|start"
+                android:minHeight="48dp"
+                android:text="Кладовщик: "
+                android:textColor="#000000" />
+
+            <TextView
+                android:id="@+id/watch_work_worknameTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:gravity="center|start"
+                android:minHeight="48dp"
+                android:text="Тип услуги: "
+                android:textColor="#000000" />
+
+            <TextView
+                android:id="@+id/watch_work_priceTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:gravity="center|start"
+                android:minHeight="48dp"
+                android:text="Цена без уч. запчастей: "
+                android:textColor="#000000" />
+
+            <TextView
+                android:id="@+id/watch_work_netpriceTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:gravity="center|start"
+                android:minHeight="48dp"
+                android:text="Стоимость с уч. запчастей: "
+                android:textColor="#000000" />
+
+            <TextView
+                android:id="@+id/watch_work_statusTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:gravity="center|start"
+                android:minHeight="48dp"
+                android:textColor="#000000" />
+
+            <TextView
+                android:id="@+id/watch_work_workbeginTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:gravity="center|start"
+                android:minHeight="48dp"
+                android:text="Дата  создания: "
+                android:textColor="#000000" />
+
+            <TextView
+                android:id="@+id/watch_work_countTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:gravity="center|start"
+                android:minHeight="48dp"
+                android:text="Количество: "
+                android:textColor="#000000" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#FEFEFE"
+            android:orientation="vertical">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerview_spareparts"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FEFEFE"
+                android:padding="@dimen/big_padding"
+                tools:listitem="@layout/sparepart_item_recyclerview">
+
+            </androidx.recyclerview.widget.RecyclerView>
+
+        </LinearLayout>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -12,12 +12,14 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.myapplication.App;
 import com.example.myapplication.R;
 import com.example.myapplication.adapters.WorkListAdapter;
+import com.example.myapplication.models.bindingModels.ChangeTOStatusBindingModel;
 import com.example.myapplication.models.viewModels.TOViewModel;
 import com.example.myapplication.models.viewModels.WorkViewModel;
 
@@ -43,7 +45,8 @@ public class WatchTOFragment extends Fragment {
     private TOViewModel to;
     private Integer toId;
     private App app;
-
+    private Button watch_to_button_action;
+    Boolean flag = false;
     public WatchTOFragment() {
         // Required empty public constructor
     }
@@ -52,7 +55,7 @@ public class WatchTOFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        app =(App) getActivity().getApplication();
+        app = (App) getActivity().getApplication();
     }
 
     @Override
@@ -70,14 +73,25 @@ public class WatchTOFragment extends Fragment {
         watch_to_sumTV = view.findViewById(R.id.watch_to_sumTV);
 
         setRecyclerView();
-
+        watch_to_button_action = view.findViewById(R.id.watch_to_button_action);
+        watch_to_button_action.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (to != null) {
+                    doActionWithTO();
+                }
+            }
+        });
         return view;
     }
 
     private void setRecyclerView() {
         Bundle bundle = getArguments();
-        if (bundle != null)
+        if (bundle != null) {
+            setButtonDesc(bundle.getString("status"));
             toId = bundle.getInt("toId");
+        }
+
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
@@ -150,5 +164,118 @@ public class WatchTOFragment extends Fragment {
         if (!s.equals("-"))
             return s.split("T")[0] + " " + s.split("T")[1].substring(0, 5);
         return "-";
+    }
+
+    private boolean doActionWithTO() {
+        ChangeTOStatusBindingModel to_bind = new ChangeTOStatusBindingModel();
+        to_bind.setTOid(to.getId());
+
+        switch (to.getStatus()) {
+            case "Принят":
+                Call<Boolean> call1 = app.getStoService().getApi().takeTOInWork(to_bind);
+                call1.enqueue(new Callback<Boolean>() {
+                    @Override
+                    public void onResponse(@NonNull Call<Boolean> call, @NonNull Response<Boolean> response) {
+                        if (!response.isSuccessful()) {
+                            Toast.makeText(getContext(), response.code(), Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+                        flag = Boolean.TRUE.equals(response.body());
+                        Toast.makeText(getContext(), "ТО отправлено в работу", Toast.LENGTH_SHORT).show();
+                        if (flag) {
+                            try {
+                                Thread.sleep(300);
+                            } catch (InterruptedException e) {
+                                Thread.currentThread().interrupt();
+                            }
+                            getActivity().getSupportFragmentManager()
+                                    .popBackStack();
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(@NonNull Call<Boolean> call, @NonNull Throwable t) {
+                        Toast.makeText(getContext(), t.getMessage(), Toast.LENGTH_SHORT).show();
+                        Log.d("BBB", t.getMessage());
+                    }
+                });
+                break;
+            case "Выполняется":
+                Call<Boolean> call2 = app.getStoService().getApi().finishTO(to_bind);
+                call2.enqueue(new Callback<Boolean>() {
+                    @Override
+                    public void onResponse(@NonNull Call<Boolean> call, @NonNull Response<Boolean> response) {
+                        if (!response.isSuccessful()) {
+                            Toast.makeText(getContext(), response.code(), Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+                        flag = Boolean.TRUE.equals(response.body());
+                        if (flag) {
+                            Toast.makeText(getContext(), "ТО готово!", Toast.LENGTH_SHORT).show();
+                            try {
+                                Thread.sleep(300);
+                            } catch (InterruptedException e) {
+                                Thread.currentThread().interrupt();
+                            }
+                            getActivity().getSupportFragmentManager()
+                                    .popBackStack();
+                        }
+                        else
+                            Toast.makeText(getContext(), "Не все работы завершены!", Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onFailure(@NonNull Call<Boolean> call, @NonNull Throwable t) {
+                        Toast.makeText(getContext(), t.getMessage(), Toast.LENGTH_SHORT).show();
+                        Log.d("BBB", t.getMessage());
+                    }
+                });
+                break;
+            case "Готов":
+                Call<Boolean> call3 = app.getStoService().getApi().issueTO(to_bind);
+                call3.enqueue(new Callback<Boolean>() {
+                    @Override
+                    public void onResponse(@NonNull Call<Boolean> call, @NonNull Response<Boolean> response) {
+                        if (!response.isSuccessful()) {
+                            Toast.makeText(getContext(), response.code(), Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+                        flag = Boolean.TRUE.equals(response.body());
+                        Toast.makeText(getContext(), "ТО выдано!", Toast.LENGTH_SHORT).show();
+                        if (flag) {
+                            try {
+                                Thread.sleep(300);
+                            } catch (InterruptedException e) {
+                                Thread.currentThread().interrupt();
+                            }
+                            getActivity().getSupportFragmentManager()
+                                    .popBackStack();
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(@NonNull Call<Boolean> call, @NonNull Throwable t) {
+                        Toast.makeText(getContext(), t.getMessage(), Toast.LENGTH_SHORT).show();
+                        Log.d("BBB", t.getMessage());
+                    }
+                });
+                break;
+        }
+        return flag;
+    }
+
+    private void setButtonDesc(String s) {
+        switch (s) {
+            case "Выполняется":
+                watch_to_button_action.setText("Завершить ТО");
+                break;
+            case "Готов":
+                watch_to_button_action.setText("Выдать автомобиль");
+                break;
+            case "Выдан":
+                watch_to_button_action.setEnabled(false);
+                watch_to_button_action.setText("Выдано!");
+                break;
+        }
     }
 }

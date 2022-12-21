@@ -39,14 +39,14 @@ public class WorkListAdapter extends RecyclerView.Adapter<WorkListAdapter.WorkVi
     public void onBindViewHolder(@NonNull WorkViewHolder holder, int position) {
         if (works != null && works.size() > 0) {
             WorkViewModel work = works.get(position);
-            holder.work_item_storekeeperTV.append(work.getStoreKeeperFIO());
-            holder.work_item_nameTV.append(work.getWorkName());
-            holder.work_item_priceTV.append(String.valueOf(work.getPrice()));
-            holder.work_item_netpriceTV.append(String.valueOf(work.getNetPrice()));
+            holder.work_item_storekeeperTV.setText("Кладовщик: " + work.getStoreKeeperFIO());
+            holder.work_item_nameTV.setText("Название: " + work.getWorkName());
+            holder.work_item_priceTV.setText("Стоимость: " + work.getPrice());
+            holder.work_item_netpriceTV.setText("Стоимость с уч. запчастей: " + work.getNetPrice());
             String status = work.getWorkStatus();
             holder.work_item_statusTV.setText(Html.fromHtml(getStatus(status)), TextView.BufferType.SPANNABLE);
-            holder.work_item_datebeginTV.append(getDateNormalFormat(work.getWorkBegin()));
-            holder.work_item_countTV.append(String.valueOf(work.getCount()));
+            holder.work_item_datebeginTV.setText("Дата начала: " + getDateNormalFormat(work.getWorkBegin()));
+            holder.work_item_countTV.setText("Количество: " + work.getCount());
         }
     }
 

@@ -5,9 +5,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
-import android.text.Editable;
 import android.text.TextUtils;
-import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -74,7 +72,7 @@ public class CreateWorkFragment extends Fragment {
         spinnerTO = view.findViewById(R.id.add_to_spinner_cars);
         spinnerWorkType = view.findViewById(R.id.create_work_spinner_work_types);
         spinnerStoreKeeper = view.findViewById(R.id.create_work_spinner_storekeeper);
-        create_work_countET = view.findViewById(R.id.create_work_countET);
+        create_work_countET = view.findViewById(R.id.watch_work_storekeeperfioTV);
         create_work_priceET = view.findViewById(R.id.create_work_priceET);
         create_work_netpriceET = view.findViewById(R.id.create_work_netpriceET);
         create_work_button_work_create = view.findViewById(R.id.create_work_button_work_create);
@@ -289,10 +287,11 @@ public class CreateWorkFragment extends Fragment {
 
             Float price = workType.getPrice() * k;
             Float netprice = workType.getNetPrice() * k;
-            create_work_priceET.append(String.valueOf(price));
-            create_work_netpriceET.append(String.valueOf(netprice));
+            create_work_priceET.setText(String.valueOf(price));
+            create_work_netpriceET.setText(String.valueOf(netprice));
         }
     }
+
     private int tryParseInt(String value) {
         try {
             return Integer.parseInt(value);

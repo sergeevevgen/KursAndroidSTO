@@ -17,7 +17,6 @@ import java.util.ArrayList;
 public class RecordListAdapter extends RecyclerView.Adapter<RecordListAdapter.RecordViewHolder> {
     private Context context;
     private ArrayList<ServiceRecordViewModel> records;
-    //private ArrayList<CarViewModel> cars_selected;
     private OnItemLongClickListener listener;
     private final String DateB = "Дата начала: ";
     private final String DateE = "Дата окончания: ";
@@ -26,7 +25,6 @@ public class RecordListAdapter extends RecyclerView.Adapter<RecordListAdapter.Re
     public RecordListAdapter(Context c) {
         this.context = c;
         records = new ArrayList<>();
-        //cars_selected = new ArrayList<>();
     }
 
     public void filterList(ArrayList<ServiceRecordViewModel> filterList) {

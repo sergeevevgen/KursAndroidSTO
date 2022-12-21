@@ -81,6 +81,7 @@ public class HomeFragment extends Fragment {
                 Bundle bundle = new Bundle();
                 Integer id = to.getId();
                 bundle.putInt("toId", id);
+                bundle.putString("status", to.getStatus());
                 WatchTOFragment watchTOFragment = new WatchTOFragment();
                 watchTOFragment.setArguments(bundle);
                 replaceFragment(watchTOFragment);

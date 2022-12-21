@@ -63,7 +63,7 @@ public class AddEditCarFragment extends Fragment {
 
         button_car_edit = view.findViewById(R.id.button_car_edit);
 
-        editText_brand = view.findViewById(R.id.create_work_countET);
+        editText_brand = view.findViewById(R.id.watch_work_storekeeperfioTV);
         editText_model = view.findViewById(R.id.create_work_priceET);
         editText_vin = view.findViewById(R.id.editText_vin);
         editText_phone_num = view.findViewById(R.id.editText_phone_number);

@@ -35,9 +35,9 @@
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
             android:layout_toEndOf="@id/sparepart_imageIV"
-            android:text="Название: "
+            android:text="Деталь:  "
             android:textColor="#222020"
-            android:textSize="18sp"
+            android:textSize="16sp"
             android:textStyle="bold" />
 
         <TextView
@@ -76,7 +76,7 @@
             android:layout_marginTop="8dp"
             android:layout_toEndOf="@id/sparepart_imageIV"
             android:drawablePadding="2dp"
-            android:text="Стоимость с уч. запчастей: "
+            android:text="Тип детали: "
             android:textColor="#4A4D4E"
             android:textSize="11sp" />
 
@@ -92,5 +92,18 @@
             android:textColor="#4A4D4E"
             android:textSize="11sp"
             android:text="Ед. измерения: "/>
+
+        <TextView
+            android:id="@+id/sparepart_item_countTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/sparepart_item_measurementTV"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="8dp"
+            android:layout_toEndOf="@id/sparepart_imageIV"
+            android:drawablePadding="2dp"
+            android:textColor="#4A4D4E"
+            android:textSize="11sp"
+            android:text="Количество: "/>
     </RelativeLayout>
 </androidx.cardview.widget.CardView>
