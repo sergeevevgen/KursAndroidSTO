@@ -77,10 +77,10 @@ public class CarListAdapter extends RecyclerView.Adapter<CarListAdapter.CarViewH
 
         private CarViewHolder(View itemView) {
             super(itemView);
-            brandTV = itemView.findViewById(R.id.car_brandTV);
-            modelTV = itemView.findViewById(R.id.car_modelTV);
-            vinTV = itemView.findViewById(R.id.car_vinTV);
-            phoneTV = itemView.findViewById(R.id.car_owner_phone_numberTV);
+            brandTV = itemView.findViewById(R.id.work_item_storekeeperTV);
+            modelTV = itemView.findViewById(R.id.work_item_nameTV);
+            vinTV = itemView.findViewById(R.id.work_item_priceTV);
+            phoneTV = itemView.findViewById(R.id.work_item_netpriceTV);
             itemView.setOnLongClickListener(new View.OnLongClickListener() {
                 @Override
                 public boolean onLongClick(View v) {

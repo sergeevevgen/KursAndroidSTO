@@ -58,7 +58,9 @@ public class TOListAdapter extends RecyclerView.Adapter<TOListAdapter.TOViewHold
     }
 
     private String getDateNormalFormat(String s) {
-        return s.split("T")[0] + " " + s.split("T")[1].substring(0, 5);
+        if (!s.equals("-"))
+            return s.split("T")[0] + " " + s.split("T")[1].substring(0, 5);
+        return "-";
     }
 
     private String getStatus(String s) {

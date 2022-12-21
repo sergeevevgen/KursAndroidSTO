@@ -6,7 +6,7 @@ import com.example.myapplication.databinding.ActivityMainBinding;
 import com.example.myapplication.ui.cars.CarsFragment;
 import com.example.myapplication.ui.to.HomeFragment;
 import com.example.myapplication.ui.ProfileFragment;
-import com.example.myapplication.ui.WorksFragment;
+import com.example.myapplication.ui.works.WorksFragment;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;

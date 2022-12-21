@@ -15,12 +15,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.myapplication.App;
 import com.example.myapplication.R;
-import com.example.myapplication.adapters.CarListAdapter;
 import com.example.myapplication.adapters.RecordListAdapter;
 import com.example.myapplication.models.bindingModels.CarBindingModel;
 import com.example.myapplication.models.viewModels.CarViewModel;
@@ -29,7 +27,6 @@ import com.example.myapplication.ui.records.EditRecordFragment;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Timer;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -66,8 +63,8 @@ public class AddEditCarFragment extends Fragment {
 
         button_car_edit = view.findViewById(R.id.button_car_edit);
 
-        editText_brand = view.findViewById(R.id.editText_brand);
-        editText_model = view.findViewById(R.id.editText_model);
+        editText_brand = view.findViewById(R.id.create_work_countET);
+        editText_model = view.findViewById(R.id.create_work_priceET);
         editText_vin = view.findViewById(R.id.editText_vin);
         editText_phone_num = view.findViewById(R.id.editText_phone_number);
 
@@ -98,7 +95,6 @@ public class AddEditCarFragment extends Fragment {
             recyclerView.setHasFixedSize(true);
             recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-            records = new ArrayList<>();
             adapter = new RecordListAdapter(getContext());
             recyclerView.setAdapter(adapter);
             restore();

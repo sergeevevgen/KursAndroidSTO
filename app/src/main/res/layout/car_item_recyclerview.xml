@@ -28,7 +28,7 @@
             android:src="@drawable/ic_car" />
 
         <TextView
-            android:id="@+id/car_brandTV"
+            android:id="@+id/work_item_storekeeperTV"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -40,10 +40,10 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/car_modelTV"
+            android:id="@+id/work_item_nameTV"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/car_brandTV"
+            android:layout_below="@id/work_item_storekeeperTV"
             android:layout_marginStart="15dp"
             android:layout_marginTop="10dp"
             android:layout_toEndOf="@id/car_imageIV"
@@ -53,10 +53,10 @@
             android:textColor="#4A4D4E" />
 
         <TextView
-            android:id="@+id/car_vinTV"
+            android:id="@+id/work_item_priceTV"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/car_modelTV"
+            android:layout_below="@id/work_item_nameTV"
             android:layout_marginStart="15dp"
             android:layout_marginTop="8dp"
             android:layout_toEndOf="@id/car_imageIV"
@@ -67,10 +67,10 @@
             android:textSize="11sp" />
 
         <TextView
-            android:id="@+id/car_owner_phone_numberTV"
+            android:id="@+id/work_item_netpriceTV"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/car_vinTV"
+            android:layout_below="@id/work_item_priceTV"
             android:layout_marginStart="15dp"
             android:layout_marginTop="8dp"
             android:layout_toEndOf="@id/car_imageIV"

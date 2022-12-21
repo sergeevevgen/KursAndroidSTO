@@ -70,7 +70,6 @@ public class CarsFragment extends Fragment {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        cars = new ArrayList<>();
         adapter = new CarListAdapter(getContext());
         recyclerView.setAdapter(adapter);
         restore();

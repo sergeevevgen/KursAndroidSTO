@@ -102,6 +102,8 @@ public class WorkViewModel {
     }
 
     public String getWorkBegin() {
+        if (WorkBegin == null)
+            return "-";
         return WorkBegin;
     }
 

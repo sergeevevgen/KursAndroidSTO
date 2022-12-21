@@ -19,7 +19,7 @@
 
     <fragment
         android:id="@+id/navigation_works"
-        android:name="com.example.myapplication.ui.WorksFragment"
+        android:name="com.example.myapplication.ui.works.WorksFragment"
         android:label="@string/title_works"
         tools:layout="@layout/fragment_works" />
     <fragment

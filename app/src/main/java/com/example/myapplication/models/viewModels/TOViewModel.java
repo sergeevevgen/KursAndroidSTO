@@ -91,6 +91,8 @@ public class TOViewModel {
     }
 
     public String getDateImplement() {
+        if (DateImplement == null)
+            return "-";
         return DateImplement;
     }
 
@@ -99,6 +101,8 @@ public class TOViewModel {
     }
 
     public String getDateOver() {
+        if (DateOver == null)
+            return "-";
         return DateOver;
     }
 
