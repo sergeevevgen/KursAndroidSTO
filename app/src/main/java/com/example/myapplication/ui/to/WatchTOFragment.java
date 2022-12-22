@@ -71,9 +71,10 @@ public class WatchTOFragment extends Fragment {
         watch_to_datebeginTV = view.findViewById(R.id.watch_to_datebeginTV);
         watch_to_dateendTV = view.findViewById(R.id.watch_to_dateendTV);
         watch_to_sumTV = view.findViewById(R.id.watch_to_sumTV);
+        watch_to_button_action = view.findViewById(R.id.watch_to_button_action);
 
         setRecyclerView();
-        watch_to_button_action = view.findViewById(R.id.watch_to_button_action);
+
         watch_to_button_action.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

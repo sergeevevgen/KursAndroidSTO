@@ -13,10 +13,10 @@
         android:layout_height="wrap_content"
         android:background="#EEE5E5"
         android:orientation="vertical"
-        android:paddingLeft="20dp"
-        android:paddingTop="20dp"
-        android:paddingEnd="20dp"
-        android:paddingBottom="20dp"
+        android:paddingLeft="5dp"
+        android:paddingTop="5dp"
+        android:paddingEnd="5dp"
+        android:paddingBottom="5dp"
         app:layout_constraintBottom_toTopOf="@+id/laydown"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -70,7 +70,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:orientation="vertical"
-        android:paddingTop="50dp"
+        android:paddingTop="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -91,7 +91,8 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:background="#EEE5E5"
-            android:text="Excel" />
+            android:padding="5dp"
+            android:text="Отчёт по услугам" />
 
         <Button
             android:id="@+id/profile_button_word_report"
@@ -99,7 +100,19 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:background="#EEE5E5"
-            android:text="Word" />
+            android:padding="5dp"
+            android:text="Отчёт по автомобилю" />
+
+        <Spinner
+            android:id="@+id/profile_spinner_cars"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:backgroundTint="@color/black"
+            android:minHeight="60dp"
+            tools:ignore="SpeakableTextPresentCheck"
+            tools:listitem="@layout/spinner_cars_item_closed" />
 
         <Button
             android:id="@+id/profile_button_pdf_report"
@@ -107,7 +120,8 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:background="#EEE5E5"
-            android:text="Pdf" />
+            android:padding="5dp"
+            android:text="Отчёт по проделанным ТО" />
 
         <Button
             android:id="@+id/profile_button_exit"

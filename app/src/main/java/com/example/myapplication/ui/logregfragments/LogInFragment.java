@@ -98,6 +98,7 @@ public class LogInFragment extends Fragment {
                     if (App.getEmployee() != null) {
                         Intent intent = new Intent(getActivity(), MainActivity.class);
                         startActivity(intent);
+                        getActivity().finish();
                     }
                     else
                         Toast.makeText(getContext(), "Неверный пароль или логин!", Toast.LENGTH_SHORT).show();
