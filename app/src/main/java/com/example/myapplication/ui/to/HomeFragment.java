@@ -92,7 +92,7 @@ public class HomeFragment extends Fragment {
     private void restore() {
         //Todo: initialize employee
 //        Call<List<TOViewModel>> call = app.getStoService().getApi().getTOs(App.getEmployee().getId());
-        Call<List<TOViewModel>> call = app.getStoService().getApi().getTOs(1);
+        Call<List<TOViewModel>> call = app.getStoService().getApi().getTOs(App.getEmployee().getId());
         call.enqueue(new Callback<List<TOViewModel>>() {
             @Override
             public void onResponse(@NonNull Call<List<TOViewModel>> call, @NonNull Response<List<TOViewModel>> response) {

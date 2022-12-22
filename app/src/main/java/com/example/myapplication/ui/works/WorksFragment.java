@@ -91,9 +91,7 @@ public class WorksFragment extends Fragment {
     }
 
     private void restore() {
-        //Todo: initialize employee
-//        Call<List<TOViewModel>> call = app.getStoService().getApi().getTOs(App.getEmployee().getId());
-        Call<List<WorkViewModel>> call = app.getStoService().getApi().getWorksByEmployee(1);
+        Call<List<WorkViewModel>> call = app.getStoService().getApi().getWorksByEmployee(App.getEmployee().getId());
         call.enqueue(new Callback<List<WorkViewModel>>() {
             @Override
             public void onResponse(@NonNull Call<List<WorkViewModel>> call, @NonNull Response<List<WorkViewModel>> response) {

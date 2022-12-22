@@ -1,5 +1,8 @@
 package com.example.myapplication;
 
+import android.app.DownloadManager;
+import android.content.Context;
+import android.net.Uri;
 import android.os.Bundle;
 
 import com.example.myapplication.databinding.ActivityMainBinding;
@@ -38,6 +41,11 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 case R.id.navigation_profile:
                     replaceFragment(new ProfileFragment());
+                    //TOdo: file download
+//                    DownloadManager manager = (DownloadManager) getSystemService(Context.DOWNLOAD_SERVICE);
+//                    DownloadManager.Request request = new DownloadManager.Request(Uri.parse("http://192.168.0.127:7252/api/getfile.xlsx"));
+//                    request.setDescription("Test");
+//                    manager.enqueue(request);
                     break;
             }
             return true;

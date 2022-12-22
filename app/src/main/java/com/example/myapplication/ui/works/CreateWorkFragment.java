@@ -153,9 +153,7 @@ public class CreateWorkFragment extends Fragment {
 
     private void restore() {
         //Подгружаем ТОшки
-        //Todo: регистрация и авторизация
-        //Call<List<TOViewModel>> call = app.getStoService().getApi().getTOs(App.getEmployee().getId());
-        Call<List<TOViewModel>> call = app.getStoService().getApi().getNotStartedTOs(1);
+        Call<List<TOViewModel>> call = app.getStoService().getApi().getNotStartedTOs(App.getEmployee().getId());
         call.enqueue(new Callback<List<TOViewModel>>() {
             @Override
             public void onResponse(@NonNull Call<List<TOViewModel>> call, @NonNull Response<List<TOViewModel>> response) {
