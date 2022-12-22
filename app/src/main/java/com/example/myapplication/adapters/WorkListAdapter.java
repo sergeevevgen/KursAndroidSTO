@@ -39,6 +39,7 @@ public class WorkListAdapter extends RecyclerView.Adapter<WorkListAdapter.WorkVi
     public void onBindViewHolder(@NonNull WorkViewHolder holder, int position) {
         if (works != null && works.size() > 0) {
             WorkViewModel work = works.get(position);
+            holder.work_item_toIdTV.setText("Номер ТО: " + work.getTOId());
             holder.work_item_storekeeperTV.setText("Кладовщик: " + work.getStoreKeeperFIO());
             holder.work_item_nameTV.setText("Название: " + work.getWorkName());
             holder.work_item_priceTV.setText("Стоимость: " + work.getPrice());
@@ -89,6 +90,7 @@ public class WorkListAdapter extends RecyclerView.Adapter<WorkListAdapter.WorkVi
         private final TextView work_item_statusTV;
         private final TextView work_item_datebeginTV;
         private final TextView work_item_countTV;
+        private final TextView work_item_toIdTV;
 
         private WorkViewHolder(View itemView) {
             super(itemView);
@@ -99,6 +101,7 @@ public class WorkListAdapter extends RecyclerView.Adapter<WorkListAdapter.WorkVi
             work_item_statusTV = itemView.findViewById(R.id.work_item_statusTV);
             work_item_datebeginTV = itemView.findViewById(R.id.work_item_datebeginTV);
             work_item_countTV = itemView.findViewById(R.id.work_item_countTV);
+            work_item_toIdTV = itemView.findViewById(R.id.work_item_toIdTV);
 
             if (listener != null) {
                 itemView.setOnLongClickListener(new View.OnLongClickListener() {

@@ -29,6 +29,17 @@
             android:src="@drawable/ic_baseline_miscellaneous_services_24" />
 
         <TextView
+            android:id="@+id/work_item_toIdTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="70dp"
+            android:layout_marginEnd="0dp"
+            android:layout_toEndOf="@+id/work_imageIV"
+            android:text="Номер ТО:"
+            android:textColor="@color/black" />
+
+        <TextView
             android:id="@+id/work_item_storekeeperTV"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
